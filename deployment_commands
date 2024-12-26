@@ -1,0 +1,3 @@
+git pull repo main 
+docker build fastapi
+docker run fastapi
