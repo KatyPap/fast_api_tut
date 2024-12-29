@@ -1,3 +1,3 @@
-git pull repo main 
-docker build fastapi
-docker run fastapi
+git clone https://github.com/KatyPap/fast_api_tut.git 
+docker build -t fastapi .
+docker run -d -p 8000:8000 fastapi
