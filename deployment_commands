@@ -1,3 +1,8 @@
-git clone https://github.com/KatyPap/fast_api_tut.git 
+git clone https://github.com/KatyPap/fast_api_tut.git
+
+#stop and delete all containers curently running 
+docker rm -f $(docker ps -a -q)
+
 docker build -t fastapi .
 docker run -d -p 8000:8000 fastapi
+
