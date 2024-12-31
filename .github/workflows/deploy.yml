@@ -17,3 +17,13 @@ jobs:
         script: |
           ls
           sudo docker ps -a
+          cd ~/fast_api_tut
+          git pull origin master
+          
+          sudo docker build -t fastapi .
+          
+          #stop and delete all containers curently running 
+          sudo docker rm -f $(sudo docker ps -a -q)
+          
+          sudo docker run -d -p 8000:8000 fastapi
+      

@@ -19,6 +19,8 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 git clone https://github.com/KatyPap/fast_api_tut.git
 
+
+cd ~/fast_api_tut
 git pull origin master
 
 #stop and delete all containers curently running 
