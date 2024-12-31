@@ -2,7 +2,7 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-items = ['apple','orange'] 
+items = ['apple','orange', 'banana'] 
 
 @app.get("/")
 def root():
