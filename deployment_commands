@@ -17,13 +17,12 @@ sudo apt-get update
 
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-
-
-
 git clone https://github.com/KatyPap/fast_api_tut.git
 
+git pull origin master
+
 #stop and delete all containers curently running 
-sudo docker rm -f $(docker ps -a -q)
+sudo docker rm -f $(sudo docker ps -a -q)
 
 sudo docker build -t fastapi .
 sudo docker run -d -p 8000:8000 fastapi
