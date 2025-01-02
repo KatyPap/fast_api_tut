@@ -23,7 +23,7 @@ git clone https://github.com/KatyPap/fast_api_tut.git
 cd ~/fast_api_tut
 git pull origin master
 
-#stop and delete all containers curently running 
+#stop and delete all curently running containers generated from the fastapi image 
 sudo docker rm -f $(sudo docker ps -a -q --filter ancestor=fastapi)
 
 sudo docker build -t fastapi .
