@@ -24,6 +24,7 @@ cd ~/fast_api_tut
 git pull origin master
 
 #stop and delete all curently running containers generated from the fastapi image 
+#Το νιώθω θα δουλέψει τώρα
 docker-compose down
 
 docker-compose up -d --build
