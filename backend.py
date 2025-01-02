@@ -5,7 +5,7 @@ from pydantic import BaseModel
 app = FastAPI()
 
 conn = psycopg2.connect(
-    host="localhost",
+    host="135.225.108.173",
     database="app_database",
     user="katypap",
     password="katypap",
@@ -24,5 +24,5 @@ def root():
   
 @app.get("/fruits")
 def get_fruits():
-    fruits = select_from_table('FRUITS')
-    return fruits
+  fruits = select_from_table('FRUITS')
+  return fruits

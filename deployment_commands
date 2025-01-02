@@ -24,7 +24,7 @@ cd ~/fast_api_tut
 git pull origin master
 
 #stop and delete all containers curently running 
-sudo docker rm -f $(sudo docker ps -a -q)
+sudo docker rm -f $(sudo docker ps -a -q --filter ancestor=fastapi)
 
 sudo docker build -t fastapi .
 sudo docker run -d -p 8000:8000 fastapi
