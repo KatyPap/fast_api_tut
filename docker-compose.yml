@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   fastapi:
     build: .
@@ -17,5 +17,5 @@ services:
 
 networks:
   app-network:
-    external: true  # Use the existing network created by postgres compose
+    external: true # Use the existing network created by postgres compose
     name: app-network
