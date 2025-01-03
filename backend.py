@@ -22,7 +22,7 @@ def insert_into_table_f(table_name, items):
 
 @app.get("/")
 def root():
-    return {"Hello": "World"}
+    return {"Hello": "World TEST"}
   
 @app.post("/select_from_table")
 def select_from_table(data: dict):

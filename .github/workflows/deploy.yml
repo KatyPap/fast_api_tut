@@ -28,7 +28,6 @@ jobs:
           git pull origin master
           git log -n 2
 
-          
           # if ! sudo docker ps | grep postgres_db; then #looks for container with name postgres_db
           # sudo docker compose rm -sf fastapi
           sudo docker compose up -d --force-recreate
