@@ -13,16 +13,33 @@ conn = psycopg2.connect(
 )
 cursor = conn.cursor()
 
-def select_from_table(table_name):
-  cursor.execute("SELECT * FROM FRUITS")
-  rows = cursor.fetchall()
-  return rows
+def insert_into_table_f(table_name, items):
+    for item in items:
+        cursor.execute(f"""
+          INSERT INTO {table_name} VALUES ('{item}');
+        """)
+    conn.commit()
 
 @app.get("/")
 def root():
-  return {"Hello": "World"}
+    return {"Hello": "World"}
   
-@app.get("/fruits")
-def get_fruits():
-  fruits = select_from_table('FRUITS')
-  return fruits
+@app.post("/select_from_table")
+def select_from_table(data: dict):
+    table_name = data['table_name']
+    cursor.execute(f"SELECT * FROM {table_name}")
+    rows = cursor.fetchall()
+    return rows
+
+@app.post("/insert_into_table")
+def insert_into_table(data: dict):
+    table = data['table'] 
+    items = data['items']
+    insert_into_table_f(table, items)
+    return f'inserted {items} into {table}'
+
+# @app.post("/test_post")
+# def insert_test(data: dict):
+#     a = data['x']
+#     b = data['y']
+#     return [a,b]
