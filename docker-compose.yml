@@ -1,9 +1,9 @@
-version: "3"
+version: 3.8
 services:
   fastapi:
     build: .
     container_name: fastapi
-    command: uvicorn backend:app --host 0.0.0.0 --port 8000
+    command: uvicorn backend:app --host 0.0.0.0 --port 8000 --reload
     env_file:
       - .env
     environment:
