@@ -2,7 +2,8 @@ version: 3.8
 services:
   fastapi:
     build: .
-    container_name: fastapi
+    image: fastapi_img 
+    container_name: fastapi_cont
     command: uvicorn backend:app --host 0.0.0.0 --port 8000 --reload
     env_file:
       - .env
@@ -13,7 +14,7 @@ services:
     networks:
       - app-network
     depends_on:
-      - db
+      - postgres_db
 
 networks:
   app-network:
