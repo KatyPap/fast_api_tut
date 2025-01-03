@@ -20,12 +20,9 @@ jobs:
           cd ~/fast_api_tut
           git pull origin master
           
-          sudo docker build -t fastapi .
-          
-          #stop and delete all containers curently running 
-          sudo docker rm -f $(sudo docker ps -a -q)
-          
-          sudo docker run -d -p 8000:8000 fastapi
-          sudo docker ps -a
+          #stop and delete all curently running containers generated from the fastapi image
+          docker-compose rm -sf fastapi
+
+          docker-compose up -d --build fastapi
 
       
