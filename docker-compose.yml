@@ -13,8 +13,8 @@ services:
       - "8000:8000"
     networks:
       - app-network
-    depends_on:
-      - postgres_db
+    # depends_on:
+    #   - postgres_db
 
 networks:
   app-network:
