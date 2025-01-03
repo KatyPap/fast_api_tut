@@ -18,6 +18,8 @@ jobs:
           ls
           sudo docker ps -a
           cd ~/fast_api_tut
+          git fetch origin master
+          git status
           git pull origin master
           
           #stop and delete all curently running containers generated from the fastapi image
