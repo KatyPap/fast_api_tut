@@ -16,11 +16,11 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         script: |
 
-          # Install Docker Compose if not present
-          if ! command -v docker-compose &> /dev/null; then
-            sudo apt-get update
-            sudo apt-get install -y docker-compose-plugin
-          fi
+          # # Install Docker Compose if not present
+          # if ! command -v docker-compose &> /dev/null; then
+          #   sudo apt-get update
+          #   sudo apt-get install -y docker-compose-plugin
+          # fi
 
           ls
           sudo docker ps -a
@@ -28,6 +28,14 @@ jobs:
           git fetch origin master
           git status
           git pull origin master
+          
+          if ! sudo docker ps | grep postgres_db; then
+            sudo docker compose up -d
+          fi
+
+          cd ~/fast_api_tut
+          # Temporarily remove depends_on section since services are in different compose files
+          sed -i '/depends_on:/,+1d' docker-compose.yml
           
           #stop and delete all curently running containers generated from the fastapi image
           sudo docker compose rm -sf fastapi
