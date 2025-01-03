@@ -24,10 +24,10 @@ jobs:
 
           ls
           sudo docker ps -a
-          cd ~/fast_api_tut
-          git fetch origin master
-          git status
+          cd ~/fast_api_tut        
           git pull origin master
+          git log -n 2
+
           
           # if ! sudo docker ps | grep postgres_db; then #looks for container with name postgres_db
           # sudo docker compose rm -sf fastapi
